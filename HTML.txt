@@ -1,40 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Vote and Mint NFT</title>
-    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orc vs Elf NFT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin: 0 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Vote and Mint Your NFT</h1>
-    <img src="YOUR_COMBINED_IMAGE_URL" alt="Orc and Elf Image" style="width:500px;">
+
+    <h1>Vote for your favorite and Mint the NFT!</h1>
     
-    <button onclick="voteForOrc()">Vote for Orc</button>
-    <button onclick="voteForElf()">Vote for Elf</button>
+    <div class="image-container">
+        <div>
+            <img src="https://github.com/DeathHandZzz/Elf-or-Orc-NFT/blob/main/ORC.jpg" alt="Orc">
+            <button onclick="mintNFT('orc')">Vote for Orc & Mint</button>
+        </div>
+        <div>
+            <img src="https://github.com/DeathHandZzz/Elf-or-Orc-NFT/blob/main/ELF.jpg" alt="Elf">
+            <button onclick="mintNFT('elf')">Vote for Elf & Mint</button>
+        </div>
+    </div>
 
     <script>
-        // Ethers.js and Smart Contract interaction
-        async function voteForOrc() {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-            const contractAddress = "YOUR_CONTRACT_ADDRESS";  // Replace with your contract address
-            const abi = [ /* Your contract ABI here */ ];
-            const contract = new ethers.Contract(contractAddress, abi, signer);
-            
-            const transaction = await contract.voteForOrc({ value: ethers.utils.parseEther("0.01") });
-            await transaction.wait();
-            alert('You voted for the Orc and minted the NFT!');
-        }
-
-        async function voteForElf() {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-            const contractAddress = "YOUR_CONTRACT_ADDRESS";  // Replace with your contract address
-            const abi = [ /* Your contract ABI here */ ];
-            const contract = new ethers.Contract(contractAddress, abi, signer);
-            
-            const transaction = await contract.voteForElf({ value: ethers.utils.parseEther("0.01") });
-            await transaction.wait();
-            alert('You voted for the Elf and minted the NFT!');
+        function mintNFT(choice) {
+            // This function would interact with your contract or minting service
+            alert("You voted for " + choice + "! Starting the minting process...");
+            // Add minting logic here
         }
     </script>
 </body>
